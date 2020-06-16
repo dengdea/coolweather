@@ -28,7 +28,8 @@ public class AutoUpdateService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+//        throw new UnsupportedOperationException("Not yet implemented");
+        return null;
     }
 
     @Override
@@ -87,12 +88,12 @@ public class AutoUpdateService extends Service {
         String requestBingPic = "http://guolin.tech/api/bing_pic";
         HttpUtil.sendOkHttpRequest(requestBingPic, new Callback() {
             @Override
-            public void onFailure(@NotNull Call call, IOException e) {
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
                 e.printStackTrace();
             }
 
             @Override
-            public void onResponse(@NotNull Call call, Response response) throws IOException {
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 String bingPic = response.body().string();
                 SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(AutoUpdateService.this).edit();
                 editor.putString("bing_pic", bingPic);
@@ -101,3 +102,19 @@ public class AutoUpdateService extends Service {
         });
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

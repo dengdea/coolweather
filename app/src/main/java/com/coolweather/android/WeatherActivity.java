@@ -112,7 +112,7 @@ public class WeatherActivity extends AppCompatActivity {
             showWeatherInfo(weather);
         } else {
             //没有缓存去服务器查询
-            String weatherId = getIntent().getStringExtra("weather_id");
+           mWeatherId = getIntent().getStringExtra("weather_id");
             weatherLayout.setVisibility(View.INVISIBLE);
             requestWeather(mWeatherId);
         }
@@ -134,6 +134,7 @@ public class WeatherActivity extends AppCompatActivity {
 
         String weatherUrl = "http://guolin.tech/api/weather?cityid=" +
                 weatherId + "&key=dd822f0a019f4057ba18708d58e9471c";
+
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
