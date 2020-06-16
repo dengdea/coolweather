@@ -91,6 +91,7 @@ public class ChooseAreaFragment extends Fragment {
                 queryProvinces();
             }
         });
+        queryProvinces();
     }
 
     /**
